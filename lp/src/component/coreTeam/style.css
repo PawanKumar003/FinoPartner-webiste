@@ -1,0 +1,88 @@
+/* usa core team section css start */
+.bs-usa-core-team-section {
+  /* background-color: #ebf1ff; */
+  background-color: #041234;
+}
+
+.bs-usa-core-team-div {
+  background-color: #041234;
+  padding: 20px;
+}
+.bs-usa-core-team-heading h2 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+.bs-usa-core-team-heading p {
+  color: #fff;
+  margin-bottom: 0px;
+}
+.bs-usa-core-team-profile-row {
+  text-align: center;
+}
+.bs-usa-core-team-profile {
+  position: relative;
+  display: inline-block;
+}
+.bs-usa-core-team-founder-name {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+.bs-usa-core-team-founder-name i {
+  font-size: 18px;
+  color: #fff;
+}
+.bs-usa-core-team-founder {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+
+.bs-usa-core-team-profile img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  margin-top: 35px;
+  background-color: #fff;
+  transition: 1.5s all;
+  margin: auto;
+}
+.bs-usa-core-team-profile img:hover {
+  transform: scale(1.2);
+}
+.bs-usa-core-team-desination-maindiv {
+  /* display: flex;
+      align-items: center; */
+  padding: 40px;
+  background-image: url(https://www.startupfino.com/frontend/assets/usimage/Core-Team-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bs-usa-core-team-desination h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.bs-usa-core-team-desination ul li {
+  position: relative;
+  padding-left: 50px;
+  font-size: 1.3rem !important;
+  margin-bottom: 20px;
+}
+.bs-usa-core-team-desination ul li:before {
+  content: "✔";
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  font-size: 20px;
+  border-radius: 50%;
+  background: #0a6cff;
+  box-sizing: border-box;
+  color: #c9d3eb;
+}
+/* usa core team section css end */

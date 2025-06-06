@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.Simple-Steps {
+  margin: auto;
+}
+.Simple-Steps img {
+  width: 100%;
+  height: 100%;
+}
+.leadersImages img {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+.pulse-animation1 {
+  animation: pulse-animation 2s infinite;
+}
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(163, 198, 251, 1);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+  }
+  0% {
+    box-shadow: 0 0 0 4px rgba(163, 198, 251, 1);
+  }
+}
