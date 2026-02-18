@@ -25,13 +25,13 @@ function NewGoogleAdsBanner({ setIsDialogOpen, sourceId }) {
               Mark Reynolds, <strong>CPA</strong> hired Kavita Nair as Senior Accountant <strong>4 days ago.</strong>
             </div>
             <div>
-              Patrick Lewis, <strong>CPA</strong> hired Tushar Jain as Tax Preparer <strong>6 days ago.</strong>
+              Mehul Shah, <strong>Tax Accountant</strong> is available <strong>@ $15</strong> per hour
             </div>
             <div>
               Jennifer Adams, <strong>CPA</strong> hired Ankit Verma as Staff Accountant <strong>2 days ago.</strong>
             </div>
             <div>
-              Andrew Scott, <strong>CPA</strong> hired Pooja Singh as Tax Associate <strong>3 days ago.</strong>
+              Garima Joshi, <strong>Senior Bookkeeper</strong> is available <strong>@ $12</strong> per hour.
             </div>
             <div>
               Thomas Green, <strong>CPA</strong> hired Ritu Verma as Tax Preparer <strong>5 days ago.</strong>
