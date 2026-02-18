@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 function Dialog({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#000000b5] bg-opacity-50 z-50">
-      <div className="bg-white rounded-lg p-6 w-96 relative">
+      <div className="bg-white rounded-lg p-6 w-[600px] relative">
         {children}
         <div className="absolute top-1 right-1">
           <button

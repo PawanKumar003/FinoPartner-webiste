@@ -1,10 +1,11 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Fb from "./pages/Fb";
-import Email from "./pages/email";
-import Google from "./pages/google";
-import Mobile from "./pages/Mobile";
-import GoogleAds from "./pages/GoogleAds";
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Fb from './pages/Fb';
+import Email from './pages/email';
+import Google from './pages/google';
+import Mobile from './pages/Mobile';
+import GoogleAds from './pages/GoogleAds';
+import NewGoogleAds from './pages/NewGoogleAds';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
         <Route path="rt/facebook" element={<Mobile sourceId="2" />} />
         <Route path="rt/googleads" element={<GoogleAds sourceId="3" />} />
+        <Route path="rt/hire-a-tax-preparer-and-accountant" element={<NewGoogleAds sourceId="3" />} />
         {/* <Route path="rt/*" element={<div>Loading or Redirecting...</div>} /> */}
         {/* <Route
           path="*"

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import Input from "../inputs/input";
 // import Button from "../button/Button";
 
@@ -8,29 +8,23 @@ function Banner1({ setIsDialogOpen }) {
       id="Home"
       className="bg-[#060682]  p-4 md:mt-23 mt-10 scroll-mt-24"
       style={{
-        backgroundImage:
-          "url('https://thefinopartners.com/public/assets/reactimg/hiro-section-1.webp')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundImage: "url('https://thefinopartners.com/public/assets/reactimg/hiro-section-1.webp')",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
       }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1.3fr] gap-4">
         <div className="p-4 text-2xl bold md:pr-15 text-white 2xl:w-full">
           <h1 className="md:text-5xl text-3xl font-semibold md:leading-[70px]">
-            Accounting <span className="md:inline hidden">& Bookkeeping</span>{" "}
-            Services for Businesses and{" "}
+            Accounting <span className="md:inline hidden">& Bookkeeping</span> Services for Businesses and{' '}
             <span className="text-[#EEBF11] font-extrabold">CPA Firms</span>
           </h1>
           <p className="mt-4 text-4xl leading-13 text-[#EEBF11] p-2 bg-gradient-to-r from-[#07266C] from-50% via-[#0E45C1] via-100% shadow-[0px_4px_0px_-1px_rgba(0,_0,_0,_1)]">
-            <span className="md:text-4xl font-semibold">
-              {" "}
-              Hire Bookkeeper @ $12 Per Hour
-            </span>
+            <span className="md:text-4xl font-semibold"> Hire Bookkeeper @ $12 Per Hour</span>
           </p>
           <p className=" text-[18px] text-gray-300 font-normal mt-7 md:block hidden">
-            Get expert accounting and bookkeeping help at just $12/hour. Save
-            time, cut costs, and focus on growing your business while we handle
-            your books, payroll, taxes and financial reports.
+            Get expert accounting and bookkeeping help at just $12/hour. Save time, cut costs, and focus on growing your business while we
+            handle your books, payroll, taxes and financial reports.
           </p>
 
           <div className="mt-10 modalopen thanks ki jagah clendly use krna hai book a call modal open karwana hai">

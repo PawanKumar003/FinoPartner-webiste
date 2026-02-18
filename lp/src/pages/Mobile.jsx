@@ -491,7 +491,7 @@ function Mobile({ sourceId }) {
             <img
               className="w-[85px] h-[85px] rounded-full m-auto"
               src="https://www.thefinopartners.com/public/assets/reactimg/bob-conroy1.png"
-              alt="ben white"
+              alt="Bob Conroy"
             />
             <p className="text-xl font-medium mt-4 mb-3">Bob Conroy</p>
             <p className="mt-[-10px] text-sm">CPA, Director of Client Relations</p>
