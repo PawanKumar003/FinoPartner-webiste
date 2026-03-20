@@ -6,11 +6,13 @@ import Google from './pages/google';
 import Mobile from './pages/Mobile';
 import GoogleAds from './pages/GoogleAds';
 import NewGoogleAds from './pages/NewGoogleAds';
+import HireAccountant from './pages/HireAccountant';
 
 function App() {
   return (
     <>
       <Routes>
+        <Route path="rt/hireaccountant" element={<HireAccountant />} />
         <Route path="rt/fb" element={<Fb sourceId="2" />} />
         <Route path="rt/g" element={<Google sourceId="3" />} />
         <Route path="rt/email" element={<Email sourceId="7" />} />
