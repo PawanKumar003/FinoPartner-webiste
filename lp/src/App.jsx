@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="rt/hireaccountant" element={<HireAccountant />} />
+        <Route path="rt/hire-an-accountant-9xK2pQ7LmA8sD4fH1Z" element={<HireAccountant />} />
         <Route path="rt/fb" element={<Fb sourceId="2" />} />
         <Route path="rt/g" element={<Google sourceId="3" />} />
         <Route path="rt/email" element={<Email sourceId="7" />} />
