@@ -4,8 +4,8 @@ function AccountantDitailsModal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#000000b5] bg-opacity-50 z-50 px-4">
-      <div className="bg-white rounded-lg p-6 w-[600px] relative">
+    <div className="fixed inset-0 flex items-start justify-center bg-[#000000b5] bg-opacity-50 z-50">
+      <div className=" rounded-lg  relative">
         {children}
         <div className="absolute top-1 right-1">
           <button
