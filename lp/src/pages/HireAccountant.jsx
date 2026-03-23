@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AccountantDitailsModal from '../component/modal/AccountantDitailsModal';
+import { FaPlay } from 'react-icons/fa6';
 
 // case study
 const caseStudy = [
@@ -70,6 +71,26 @@ export default function HireAccountant() {
   const [candidates, setCandidates] = useState([]);
   const [status, setStatus] = useState('');
 
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (isDialogOpen && modalType === 'video' && videoRef.current) {
+      const video = videoRef.current;
+
+      // play video
+      video.play().catch(() => {});
+
+      // fullscreen
+      if (window.innerWidth < 768) {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitEnterFullscreen) {
+          video.webkitEnterFullscreen(); // iOS
+        }
+      }
+    }
+  }, [isDialogOpen, modalType]);
+
   // Button click handler
   const openModal = (data, type) => {
     setSelectedAccountant(data);
@@ -95,8 +116,8 @@ export default function HireAccountant() {
   const selectStatus = (value) => {
     if (value === 'Accountant') {
       setStatus('accountant');
-    } else if (value === 'Tax') {
-      setStatus('tax');
+    } else if (value === 'Tax-Preparer') {
+      setStatus('Tax-Preparer');
     } else {
       setStatus('');
     }
@@ -107,27 +128,46 @@ export default function HireAccountant() {
       {selectedAccountant && (
         <AccountantDitailsModal isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
           {modalType === 'video' ? (
-            <div>
+            <div className="w-full h-full flex justify-center items-center">
               {/* <div className="mb-4">
                 <h3 className="font-bold text-xl">{selectedAccountant.name}</h3>
                 <p className="text-gray-500">{selectedAccountant.role}</p>
               </div> */}
-              <div className="lg:w-[22rem] lg:h-[38rem] w-[100vw] h-full flex overflow-hidden justify-center items-center flex-col ml-0 mr-0">
-                <video controls loop width="100%" preload="metadata" className="w-full rounded-lg">
-                  <source src={`https://thefinopartners.com/public/assets/videos/Rebecca-CPA-Video.mp4`} type="video/mp4" />
+              {/* bg-[#000] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0 */}
+              <div className="bg-[#000] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0">
+                <video ref={videoRef} controls loop width="100%" preload="metadata" className="w-full rounded-lg">
+                  <source src={`https://thefinopartners.com/uploads/profile/${selectedAccountant.video}`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
             </div>
           ) : (
-            <div>
-              <div className="mb-4">
+            <div className="bg-white h-[100vh] px-3 pt-5">
+              {/* bg-[#fff] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0 */}
+              <div className="flex items-center gap-5">
+                <div className="">
+                  <img
+                    src={`https://thefinopartners.com/uploads/profile/${selectedAccountant.image}`}
+                    alt="Profile"
+                    className="w-[80px] h-[70px] rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-bold text-2xl">{selectedAccountant.name}</h3>
+                  <p className="text-gray-500 text-xl">{selectedAccountant.role}</p>
+                </div>
+              </div>
+              <div className="mt-4">
+                <p className="text-lg">{selectedAccountant.description}</p>
+              </div>
+              {/* <div className="mb-4">
                 <h3 className="font-bold text-xl">{selectedAccountant.name}</h3>
                 <p className="text-gray-500">{selectedAccountant.role}</p>
               </div>
               <div>
                 <p>{selectedAccountant.description}</p>
-              </div>
+              </div> */}
             </div>
           )}
         </AccountantDitailsModal>
@@ -167,10 +207,10 @@ export default function HireAccountant() {
             All
           </button>
           <button
-            className={`px-4 py-2 rounded-lg ${status == 'tax' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
-            onClick={() => selectStatus('Tax')}
+            className={`px-4 py-2 rounded-lg ${status == 'Tax-Preparer' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
+            onClick={() => selectStatus('Tax-Preparer')}
           >
-            Tax
+            Tax Preparer
           </button>
           <button
             className={`px-4 py-2 rounded-lg ${status == 'accountant' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
@@ -205,7 +245,9 @@ export default function HireAccountant() {
                       key={item.id}
                       onClick={() => openModal(item, 'video')}
                     >
-                      <span className="text-[#4E00DB] text-2xl ml-1">▶</span>
+                      <span className="text-[#4E00DB] text-2xl ml-1">
+                        <FaPlay />
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -236,7 +278,7 @@ export default function HireAccountant() {
                       className="cursor-pointer hover:bg-[#704fb1] px-6 py-2 rounded-lg bg-[#8c68d3] text-white text-xl font-semibold"
                       target="_blank"
                     >
-                      Meet a Candidate
+                      Meet the Candidate
                     </a>
                   </div>
                 </div>

@@ -4,13 +4,13 @@ function AccountantDitailsModal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-start justify-center bg-[#000000b5] bg-opacity-50 z-50">
-      <div className=" rounded-lg  relative">
+    <div className="fixed inset-0 flex items-start justify-center bg-[#000000b5] bg-opacity-50 z-50 h-full">
+      <div className="bg-black rounded-lg w-full h-full lg:w-[600px] relative ">
         {children}
         <div className="absolute top-1 right-1">
           <button
             onClick={onClose}
-            className=" py-0 px-[6px] text-[16px] border border-[#bcb9b9] rounded-full    cursor-pointer hover:bg-red-600 hover:text-[#fff] text-[#bcb9b9]"
+            className=" py-0 px-[6px] text-[16px] border border-[#bcb9b9] rounded-full cursor-pointer hover:bg-red-600 hover:text-[#fff] text-[#bcb9b9]"
           >
             X
           </button>
