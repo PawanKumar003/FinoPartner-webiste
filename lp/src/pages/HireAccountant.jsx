@@ -216,7 +216,7 @@ export default function HireAccountant() {
             className={`px-4 py-2 rounded-lg ${status == 'accountant' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
             onClick={() => selectStatus('Accountant')}
           >
-            Accoutant
+            Accountant
           </button>
         </div>
 
