@@ -135,7 +135,7 @@ export default function HireAccountant() {
               </div> */}
               {/* bg-[#000] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0 */}
               <div className="bg-[#000] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0">
-                <video ref={videoRef} controls loop width="100%" preload="metadata" className="w-full rounded-lg">
+                <video ref={videoRef} controls width="100%" preload="metadata" className="w-full rounded-lg">
                   <source src={`https://thefinopartners.com/uploads/profile/${selectedAccountant.video}`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -191,7 +191,7 @@ export default function HireAccountant() {
       <div>
         <div className="text-center mb-6 mt-10">
           <h1 className="text-4xl font-semibold">Our Candidates</h1>
-          <p className="text-gray-500 text-sm mt-2 md:w-8/12 mx-auto">
+          <p className="text-gray-500 text-sm mt-2 md:w-8/12 mx-auto px-4">
             Fino Partners is a leading accounting and bookkeeping services firm based in the United States, dedicated to helping businesses.
           </p>
         </div>
@@ -287,7 +287,7 @@ export default function HireAccountant() {
           ))}
         </div>
       </div>
-      <div className="grid lg:grid-cols-1 gap-6 lg:mt-20 mt-10 bg-[#EADEFF] lg:pt-10 pt-5">
+      <div className="grid lg:grid-cols-1 lg:gap-6 gap-4 lg:mt-20 mt-10 bg-[#EADEFF] lg:pt-10 pt-5">
         <div className="text-center">
           <p className="text-4xl font-semibold mb-1">Case Studies</p>
           <p>CPAs & Accounting Firms</p>
@@ -298,7 +298,7 @@ export default function HireAccountant() {
           return (
             <div key={item.id} className="bg-[#EADEFF] rounded-xl shadow pt-5 p-4 lg:flex lg:gap-10 gap-5 lg:px-10">
               {/* Image */}
-              <div className="lg:w-3/12 w-full">
+              <div className="lg:w-3/12 w-full flex justify-center items-center">
                 <img src={item.img} alt={item.title} className="w-[285px] h-[275px] rounded-lg mb-3" />
               </div>
 
