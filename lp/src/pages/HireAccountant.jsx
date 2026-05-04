@@ -69,27 +69,35 @@ export default function HireAccountant() {
   const [modalType, setModalType] = useState('');
   const [expandedId, setExpandedId] = useState(null);
   const [candidates, setCandidates] = useState([]);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState([]);
 
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    if (isDialogOpen && modalType === 'video' && videoRef.current) {
-      const video = videoRef.current;
+  // useEffect(() => {
+  //   if (isDialogOpen && modalType === 'video' && videoRef.current) {
+  //     const video = videoRef.current;
 
-      // play video
-      video.play().catch(() => {});
+  //     // play video
+  //     // video.play().catch(() => {});
 
-      // fullscreen
-      if (window.innerWidth < 768) {
-        if (video.requestFullscreen) {
-          video.requestFullscreen();
-        } else if (video.webkitEnterFullscreen) {
-          video.webkitEnterFullscreen(); // iOS
-        }
-      }
+  //     // fullscreen
+  //     if (window.innerWidth < 768) {
+  //       if (video.requestFullscreen) {
+  //         video.requestFullscreen();
+  //       } else if (video.webkitEnterFullscreen) {
+  //         video.webkitEnterFullscreen(); // iOS
+  //       }
+  //     }
+  //   }
+  // }, [isDialogOpen, modalType]);
+
+  const closeModal = () => {
+    if (videoRef.current) {
+      videoRef.current.pause(); // video stop
+      videoRef.current.currentTime = 0; // reset (optional but recommended)
     }
-  }, [isDialogOpen, modalType]);
+    setIsDialogOpen(false);
+  };
 
   // Button click handler
   const openModal = (data, type) => {
@@ -115,9 +123,9 @@ export default function HireAccountant() {
 
   const selectStatus = (value) => {
     if (value === 'Accountant') {
-      setStatus('accountant');
+      setStatus('Sr Accountant');
     } else if (value === 'Tax-Preparer') {
-      setStatus('Tax-Preparer');
+      setStatus('Sr Tax Preparer');
     } else {
       setStatus('');
     }
@@ -126,7 +134,7 @@ export default function HireAccountant() {
     <>
       {/* show text & video modal */}
       {selectedAccountant && (
-        <AccountantDitailsModal isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <AccountantDitailsModal isOpen={isDialogOpen} onClose={() => setIsDialogOpen(closeModal)}>
           {modalType === 'video' ? (
             <div className="w-full h-full flex justify-center items-center">
               {/* <div className="mb-4">
@@ -135,8 +143,16 @@ export default function HireAccountant() {
               </div> */}
               {/* bg-[#000] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0 */}
               <div className="bg-[#000] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0">
-                <video ref={videoRef} controls width="100%" preload="metadata" className="w-full rounded-lg">
-                  <source src={`https://thefinopartners.com/uploads/profile/${selectedAccountant.video}`} type="video/mp4" />
+                <video
+                  ref={videoRef}
+                  controls
+                  playsInline
+                  width="100%"
+                  preload="metadata"
+                  className="w-full rounded-lg"
+                  poster={`${selectedAccountant.image}`}
+                >
+                  <source src={`${selectedAccountant.video}`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -146,20 +162,15 @@ export default function HireAccountant() {
               {/* bg-[#fff] lg:w-[22rem] lg:h-[38rem] w-full h-[100vh] flex overflow-hidden justify-center items-center flex-col ml-0 mr-0 */}
               <div className="flex items-center gap-5">
                 <div className="">
-                  <img
-                    src={`https://thefinopartners.com/uploads/profile/${selectedAccountant.image}`}
-                    alt="Profile"
-                    className="w-[80px] h-[70px] rounded-lg"
-                    loading="lazy"
-                  />
+                  <img src={`${selectedAccountant.image}`} alt="Profile" className="w-[80px] h-[70px] rounded-lg" loading="lazy" />
                 </div>
                 <div>
                   <h3 className="font-bold text-2xl">{selectedAccountant.name}</h3>
                   <p className="text-gray-500 text-xl">{selectedAccountant.role}</p>
                 </div>
               </div>
-              <div className="mt-4">
-                <p className="text-lg">{selectedAccountant.description}</p>
+              <div className="mt-4 overflow-auto h-full" style={{ paddingBottom: '90px' }}>
+                <p className="text-lg" dangerouslySetInnerHTML={{ __html: selectedAccountant.description }}></p>
               </div>
               {/* <div className="mb-4">
                 <h3 className="font-bold text-xl">{selectedAccountant.name}</h3>
@@ -190,9 +201,10 @@ export default function HireAccountant() {
       </section>
       <div>
         <div className="text-center mb-6 mt-10">
-          <h1 className="text-4xl font-semibold">Our Candidates</h1>
+          <h1 className="text-4xl font-semibold">Bench Resources</h1>
           <p className="text-gray-500 text-sm mt-2 md:w-8/12 mx-auto px-4">
-            Fino Partners is a leading accounting and bookkeeping services firm based in the United States, dedicated to helping businesses.
+            The Fino Partners, has been providing the right accounting and tax preparation resources to U.S. firms and businesses since
+            2010.
           </p>
         </div>
       </div>
@@ -207,13 +219,13 @@ export default function HireAccountant() {
             All
           </button>
           <button
-            className={`px-4 py-2 rounded-lg ${status == 'Tax-Preparer' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
+            className={`px-4 py-2 rounded-lg ${status == 'Sr Tax Preparer' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
             onClick={() => selectStatus('Tax-Preparer')}
           >
             Tax Preparer
           </button>
           <button
-            className={`px-4 py-2 rounded-lg ${status == 'accountant' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
+            className={`px-4 py-2 rounded-lg ${status == 'Sr Accountant' ? 'bg-[#9985BD] text-white ' : 'bg-gray-100 text-gray-600 cursor-pointer hover:bg-[#9985BD] hover:text-white'}  text-sm font-medium`}
             onClick={() => selectStatus('Accountant')}
           >
             Accountant
@@ -227,12 +239,7 @@ export default function HireAccountant() {
               <div className="full bg-white rounded-2xl shadow-sm border border-gray-300 overflow-hidden text-center">
                 {/* Image Section */}
                 <div className="relative ">
-                  <img
-                    src={`https://thefinopartners.com/uploads/profile/${item.image}`}
-                    alt="Profile"
-                    className="w-full lg:h-94 h-full object-cover"
-                    loading="lazy"
-                  />
+                  <img src={`${item.image}`} alt="Profile" className="w-full lg:h-84 h-full object-cover" loading="lazy" />
                   <div
                     className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#EADEFF]/100 to-transparent blur-10xl pointer-events-none"
                     style={{ height: '50px' }}

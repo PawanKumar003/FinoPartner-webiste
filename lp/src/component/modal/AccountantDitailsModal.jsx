@@ -10,7 +10,7 @@ function AccountantDitailsModal({ isOpen, onClose, children }) {
         <div className="absolute top-1 right-1">
           <button
             onClick={onClose}
-            className=" py-0 px-[6px] text-[16px] border border-[#bcb9b9] rounded-full cursor-pointer hover:bg-red-600 hover:text-[#fff] text-[#bcb9b9]"
+            className=" py-0 px-[6px] text-[16px] border border-[#4e00db] rounded-full cursor-pointer hover:bg-red-600 hover:text-[#fff] text-white bg-[#4e00db]"
           >
             X
           </button>

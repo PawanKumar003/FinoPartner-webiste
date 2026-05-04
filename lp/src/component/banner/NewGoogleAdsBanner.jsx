@@ -2,6 +2,22 @@ import React from 'react';
 import styles from './NewGoogleAdsBanner.module.css';
 
 function NewGoogleAdsBanner({ setIsDialogOpen, sourceId }) {
+  const [headingText, setHeadingText] = React.useState('Hire the Best Accountant & Tax Preparer for CPA & Accounting Firms');
+  const currentPath = window.location.pathname;
+  console.log('Current Path:', currentPath);
+
+  React.useEffect(() => {
+    if (currentPath === '/Hire-a-Bookkeeper-for-CPA-Firrms-Businesses/google-ads') {
+      setHeadingText('Hire the Best Bookkeeper for CPA Firms and Businesses');
+    } else if (currentPath === '/Hire-a-accountant-for-CPA-Firrms-Businesses/google-ads') {
+      setHeadingText('Hire the Best Accountant for CPA Firms and Businesses');
+    } else if (currentPath === '/Hire-a-tax-preparer-for-CPA-Firrms-Businesses/google-ads') {
+      setHeadingText('Hire the Best Tax Preparer for CPA Firms and Businesses');
+    }
+  }, [currentPath]);
+  // else{
+  //   setHeadingText('Hire the Best Accountant & Tax Preparer for CPA & Accounting Firms');
+  // }
   return (
     <section
       className="w-full lg:mt-18 bg-[#f5f8ff] pb-10 py-5 scroll-mt-24"
@@ -49,7 +65,8 @@ function NewGoogleAdsBanner({ setIsDialogOpen, sourceId }) {
       <div className="w-full mt-3 px-20">
         <div className="row">
           <div className={`${styles.newhireBannerpage}`}>
-            <h2 className="leading-25 text-white">Hire the Best Accountant & Tax Preparer for CPA & Accounting Firms </h2>
+            {/* <h2 className="leading-25 text-white">Hire the Best Accountant & Tax Preparer for CPA & Accounting Firms </h2> */}
+            <h2 className="leading-25 text-white">{headingText}</h2>
             {/* <h2 className="leading-25 text-white">Hire a Skilled Tax Preparer & Accountant for Your Firm</h2> */}
             {/* for your Firm */}
             <p className="lg:col-10 mx-auto mt-10">

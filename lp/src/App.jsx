@@ -16,10 +16,14 @@ function App() {
         <Route path="rt/fb" element={<Fb sourceId="2" />} />
         <Route path="rt/g" element={<Google sourceId="3" />} />
         <Route path="rt/email" element={<Email sourceId="7" />} />
-
         <Route path="rt/facebook" element={<Mobile sourceId="2" />} />
         <Route path="rt/googleads" element={<GoogleAds sourceId="3" />} />
+
         <Route path="rt/hire-a-tax-preparer-and-accountant" element={<NewGoogleAds sourceId="3" />} />
+
+        <Route path="Hire-a-Bookkeeper-for-CPA-Firrms-Businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
+        <Route path="Hire-a-accountant-for-CPA-Firrms-Businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
+        <Route path="Hire-a-tax-preparer-for-CPA-Firrms-Businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
         {/* <Route path="rt/*" element={<div>Loading or Redirecting...</div>} /> */}
         {/* <Route
           path="*"
