@@ -21,9 +21,9 @@ function App() {
 
         <Route path="rt/hire-a-tax-preparer-and-accountant" element={<NewGoogleAds sourceId="3" />} />
 
-        <Route path="Hire-a-Bookkeeper-for-CPA-Firrms-Businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
-        <Route path="Hire-a-accountant-for-CPA-Firrms-Businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
-        <Route path="Hire-a-tax-preparer-for-CPA-Firrms-Businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
+        <Route path="rt/hire-a-bookkeeper-for-CPA-firms-businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
+        <Route path="rt/hire-a-accountant-for-cpa-firms-businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
+        <Route path="rt/hire-a-tax-preparer-for-cpa-firms-businesses/google-ads" element={<NewGoogleAds sourceId="3" />} />
         {/* <Route path="rt/*" element={<div>Loading or Redirecting...</div>} /> */}
         {/* <Route
           path="*"

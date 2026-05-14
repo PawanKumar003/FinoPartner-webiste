@@ -3,6 +3,8 @@ import { IoCall } from 'react-icons/io5';
 
 const navItem = ['Home', 'Offshoring', 'How to Hire', 'Review', 'Contact'];
 function Header({ props, setIsDialogOpen }) {
+  const currentPath = window.location.pathname;
+
   return (
     <div className="w-full flex items-center justify-around px-3 py-2 fixed top-0 bg-[#fff] w-full z-50">
       <div className="">
@@ -50,7 +52,33 @@ function Header({ props, setIsDialogOpen }) {
         </div>
       </div>
       <div className="lg:block hidden">
-        <button
+        {currentPath === '/rt/hire-a-bookkeeper-for-cpa-firms-businesses/google-ads' ||
+        currentPath === '/rt/hire-a-accountant-for-cpa-firms-businesses/google-ads' ||
+        currentPath === '/rt/hire-a-tax-preparer-for-cpa-firms-businesses/google-ads' ? (
+          <a
+            href="tel:+17878028556"
+            className="text-xl md:text-lg px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-800 text-white cursor-pointer flex items-center gap-2"
+          >
+            <span>
+              <IoCall />
+            </span>
+            <span>
+              <b>+1 (787) 802-8556</b>
+            </span>
+          </a>
+        ) : (
+          <button
+            onClick={() => setIsDialogOpen(true)}
+            className="text-xl md:text-lg px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-800 text-white cursor-pointer flex items-center gap-2"
+          >
+            <span>
+              <IoCall />
+            </span>
+            <span>Schedule a Call</span>
+          </button>
+        )}
+
+        {/* <button
           onClick={() => setIsDialogOpen(true)}
           // href="tel:+18888850124"
           className="text-xl md:text-lg px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-800 text-white cursor-pointer flex items-center gap-2"
@@ -59,7 +87,7 @@ function Header({ props, setIsDialogOpen }) {
             <IoCall />
           </span>
           <span>Schedule a Call</span>
-        </button>
+        </button> */}
       </div>
     </div>
   );

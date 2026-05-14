@@ -4,14 +4,13 @@ import styles from './NewGoogleAdsBanner.module.css';
 function NewGoogleAdsBanner({ setIsDialogOpen, sourceId }) {
   const [headingText, setHeadingText] = React.useState('Hire the Best Accountant & Tax Preparer for CPA & Accounting Firms');
   const currentPath = window.location.pathname;
-  console.log('Current Path:', currentPath);
 
   React.useEffect(() => {
-    if (currentPath === '/Hire-a-Bookkeeper-for-CPA-Firrms-Businesses/google-ads') {
+    if (currentPath === '/rt/hire-a-bookkeeper-for-cpa-firms-businesses/google-ads') {
       setHeadingText('Hire the Best Bookkeeper for CPA Firms and Businesses');
-    } else if (currentPath === '/Hire-a-accountant-for-CPA-Firrms-Businesses/google-ads') {
+    } else if (currentPath === '/rt/hire-a-accountant-for-cpa-firms-businesses/google-ads') {
       setHeadingText('Hire the Best Accountant for CPA Firms and Businesses');
-    } else if (currentPath === '/Hire-a-tax-preparer-for-CPA-Firrms-Businesses/google-ads') {
+    } else if (currentPath === '/rt/hire-a-tax-preparer-for-cpa-firms-businesses/google-ads') {
       setHeadingText('Hire the Best Tax Preparer for CPA Firms and Businesses');
     }
   }, [currentPath]);
